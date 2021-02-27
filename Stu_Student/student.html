@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>我的成绩</title>
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../public.css">
+    <style>
+        .container_test{
+            display: flex;
+            margin-top: 50px;
+            justify-content: space-around;
+        }
+    </style>
+</head>
+
+<body>
+    <!--导航-->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!--小屏幕导航按钮和logo-->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="student.html" class="navbar-brand">学生教务系统</a>
+            </div>
+            <!--小屏幕导航按钮和logo-->
+            <!--导航-->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="student.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="student.html"><span
+                                class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;成绩管理</a></li>
+                    <li><a href="student.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;智能选课</a>
+                    </li>
+                    <li><a href="student.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <!-- admin -->
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li><a href="student.html"><span
+                                        class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;前台首页</a></li>
+                            <li><a href="student.html"><span
+                                        class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+                            <li><a href="student.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a>
+                            </li>
+                            <li><a href="student.html"><span
+                                        class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
+                            <li><a href="student.html"><span
+                                        class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;我的收藏</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Login/login.html"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a>
+                    </li>
+                </ul>
+            </div>
+            <!--导航-->
+
+        </div>
+    </nav>
+
+    <!--导航-->
+    <div class="container" id="classinfoid">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"> <a class="" href="#studentinfo" data-toggle="tab">我的成绩</a>
+                    </li>
+
+                    <li role="presentation"> <a href="#homeworkinfo" class="" data-toggle="tab">我的作业</a>
+                    </li>
+                    <li role="presentation"> <a href="#classinfo" class="" data-toggle="tab">我的课程</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+
+                <!-- <ul class="nav nav-tabs">
+                <li class="active">
+                    <a href="#studentinfo" data-toggle="tab">我的成绩</a>
+                </li>
+                <li>
+                    <a href="#classinfo" data-toggle="tab">我的课程</a>
+                </li>
+            </ul> -->
+                <div class="tab-content">
+                    <!-- 我的成绩 -->
+                    <div class="tab-pane active" id="studentinfo">
+                        <div class="page-header">
+                            <h1>我的成绩</h1>
+                        </div>
+                        <!-- 介绍 -->
+                        <div class="alert alert-info" role="alert">
+                            <strong id="studentinfo_name"></strong>
+                            以下为本学期你的学习分析以及各科成绩
+                        </div>
+                        <!--主页学生列表 -->
+                        <table class="table table-responsive table-striped table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th>课程</th>
+                                    <th class="text-center">考试成绩</th>
+                                    <th class="text-center">平时作业成绩</th>
+                                    <th class="text-center">出勤成绩</th>
+                                    <th class="text-center">总成绩</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">软件工程</th>
+                                    <td id="score1">89</td>
+                                    <td id="score2">12</td>
+                                    <td id="score3">12</td>
+                                    <td id="score4">12</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">C语言程序设计</th>
+                                    <td id="score5">89</td>
+                                    <td id="score6">12</td>
+                                    <td id="score7">12</td>
+                                    <td id="score8">12</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">数据结构</th>
+                                    <td id="score9">89</td>
+                                    <td id="score10">12</td>
+                                    <td id="score11">12</td>
+                                    <td id="score12">12</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">数据库SQL Server</th>
+                                    <td id="score13">89</td>
+                                    <td id="score14">12</td>
+                                    <td id="score15">12</td>
+                                    <td id="score16">12</td>
+                                </tr>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Android应用程序开发</th>
+                                    <td id="score17">89</td>
+                                    <td id="score18">12</td>
+                                    <td id="score19">12</td>
+                                    <td id="score20">12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+<!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+<div class="container_test">
+    <div id="main" style="width: 600px;height:400px;"></div>
+    <div id="main2" style="width: 600px;height:400px;"></div>
+ </div>
+
+                    </div>
+                    <!-- 我的作业-->
+                    <div class="tab-pane" id="homeworkinfo">
+                        <div class="page-header">
+                            <h1>我的作业</h1>
+                        </div>
+                        <!-- 课表代码 -->
+                        <form action="#" class="uesr_search">
+                            <div class="alert alert-info" role="alert">
+                                <strong>我的作业：</strong>
+                                这里记录您的所有作业完成情况
+                            </div>
+                            <!-- 课表表格 -->
+                            <div class="row" id="homeworkinfo_list">
+                                <!-- <div class="col-sm-6 col-md-4">
+                                  <div class="thumbnail">
+                                    <div class="caption">
+                                      <h3>操作系统作业</h3>
+                                      <p>状态：未做</p>
+                                      <p>代课老师：傻逼</p>
+                                      <p class=""><a href="#" class="btn btn-primary" role="button" data-toggle="modal"
+                            data-target="#myhomeModal">做作业</a></p>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                      <div class="caption">
+                                        <h3>操作系统作业</h3>
+                                        <p>状态：未做</p>
+                                        <p>代课老师：傻逼</p>
+                                        <p class=""><a href="#" class="btn btn-primary" role="button">做作业</a></p>
+                                      </div>
+                                    </div>
+                                  </div> -->
+                            </div>
+                        </form>
+                    </div>
+                    <!-- 我的课程-->
+                    <div class="tab-pane" id="classinfo">
+                        <div class="page-header">
+                            <h1>我的课程</h1>
+                        </div>
+
+                        <!-- 课表代码 -->
+                        <form action="#" class="uesr_search">
+                            <div class="alert alert-info" role="alert">
+                                <strong>2020-2021年度课程表：</strong>
+                                XX大学学生个人课表
+                            </div>
+                            <!-- 课表表格 -->
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered text-center">
+                                    <thead>
+                                        <tr>
+                                            <th class="text-center">节次/周次</th>
+                                            <th class="text-center">星期一</th>
+                                            <th class="text-center">星期二</th>
+                                            <th class="text-center">星期三</th>
+                                            <th class="text-center">星期四</th>
+                                            <th class="text-center">星期五</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <th class="text-center bg-success">第一节<br><br>第二节</th>
+                                            <td class="bg-info">微型计算机原理<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">操作系统<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">算法分析与设计<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info"> 软件工程<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">软件知识产权与职业道德<br>(18181881818)xx老师<br><br>(3-12,9A327)南区
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center bg-success">第三节<br><br>第四节</th>
+                                            <td class="bg-info">人工智能<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">软件工程<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">微型计算机原理<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info"> 软件工程<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">软件知识产权与职业道德<br>(18181881818)xx老师<br><br>(3-12,9A327)南区
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center bg-danger">第五节<br><br>第六节</th>
+                                            <td> </td>
+                                            <td class="bg-info">人工智能<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">算法分析与设计<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td> </td>
+                                            <td class="bg-info">软件知识产权与职业道德<br>(18181881818)xx老师<br><br>(3-12,9A327)南区
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center bg-danger">第七节<br><br>第八节</th>
+                                            <td class="bg-info">人工智能<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">操作系统<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td class="bg-info">算法分析与设计<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td> </td>
+                                            <td class="bg-info">软件知识产权与职业道德<br>(18181881818)xx老师<br><br>(3-12,9A327)南区
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th class="text-center bg-danger">第九节<br><br>第十节</th>
+                                            <td class="bg-info">微型计算机原理<br>(18181881818)xx老师<br><br>(3-12,9A327)南区</td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                            <td> </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal fade" id="myhomeModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                                        aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="finish_myModaltitle">题目：进程的定义</h4>
+                            </div>
+                            <div class="modal-body">
+                                <form action="#">
+                                    <textarea id="finish_myModalcontent" class="form-control" rows="20"></textarea>
+
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <a id="finishhomeworkbutton" tabindex="0" class="btn btn-primary" role="button"
+                                    data-toggle="popover" data-trigger="focus" data-placement="left"
+                                    data-content="请仔细检查并填写完成你的作业">提交</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">添加用户</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="addname">用户名</label>
+                            <input type="text" id="addname" class="form-control" placeholder="用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="addpassword">用户密码</label>
+                            <input type="text" id="addpassword" class="form-control" placeholder="请输入用户密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="addpassword1">确认用户密码</label>
+                            <input type="text" id="addpassword1" class="form-control" placeholder="请确认输入用户密码">
+                        </div>
+                        <div class="form-group">
+                            <label for="addemail">请输入用户邮箱</label>
+                            <input type="email" id="addemail" class="form-control" placeholder="请输入用户邮箱">
+                        </div>
+                        <div class="form-group">
+                            <label for="addyonghuzu">所属用户组</label>
+                            <select id="addyonghuzu" class="form-control">
+                                <option>限制会员</option>
+                                <option>新手上路</option>
+                                <option>组册会员</option>
+                                <option>中级会员</option>
+                                <option>高级会员</option>
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--footer-->
+    <hr>
+    <footer>
+        <div class="container text-center setfooterposition">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>
+                        <!-- © Copyright 鲁 版权所有 -->
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer-->
+
+</body>
+<script src="../Jquery/jquery-3.5.1.js"></script>
+<script src="../Bootstrap/bootstrap.js"></script>
+<!-- 引入jquery.params.js -->
+<script src="../Jquery/jquery.params.js"></script>
+<!-- 引入JS逻辑 -->
+<script src="../JS/StudentdataJob.js"></script>
+<script src="../Achart/echarts.common.js"></script>
+<script>
+// 基于准备好的dom，初始化echarts实例
+var myChart = echarts.init(document.getElementById('main'));
+    // 指定图表的配置项和数据
+    var option = {
+        title: {
+            text: '数据分析 '
+        },
+        
+        tooltip: {},
+        legend: {
+            data:['销量']
+        },
+        xAxis: {
+            data: ["软件工程","C语言","数据结构","数据库","Android"]
+        },
+        yAxis: {},
+        series: [{
+            name: '成绩',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10]
+        }]
+    };
+    // 使用刚指定的配置项和数据显示图表。
+    myChart.setOption(option);
+
+
+
+    echarts.init(document.getElementById('main2')).setOption({
+            series: {
+                type: 'pie',
+                data: [
+                    {name: '软件工程', value: 1212},
+                    {name: 'C语言', value: 2323},
+                    {name: '数据结构', value: 1919},
+                    {name: '数据库', value: 1919},
+                    {name: 'Android', value: 1919},
+                ]
+            }
+        });
+</script>
+</html>

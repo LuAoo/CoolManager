@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="../StudentSystem/Bootstrap/bootstrap.css"></script>
+</head>
+
+<body>
+  <div>
+    <div class="row" id="homeworkinfo_list">
+      <div class="col-sm-6 col-md-4">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>操作系统作业</h4>
+            <p><strong>状态:</strong>：未做</p>
+            <p>代课老师：傻逼</p>
+            <p class=""><a href="#" class="btn btn-primary" role="button" data-toggle="modal"
+                data-target="#myhomeModal">做作业</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6 col-md-4" id="语言">
+        <div class="thumbnail">
+          <div class="caption">
+            <h4>操作系统作业</h4>
+            <p><strong>状态:</strong>未做</p>
+            <p>代课老师：傻逼</p>
+            <p class=""><a href="#" class="btn btn-primary" role="button">做作业</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+<script src="Jquery/jquery-3.5.1.js"></script>
+<script src="../StudentSystem/Bootstrap/bootstrap.js"></script>
+<script>
+  $("#语言 h4+p").css('color', 'red');
+  $('p>strong').css('color', 'black');
+  var version = 2, DBname = 'studentSystemDB';
+
+  QueryTableByDB('studentsinglescoretable','stuname','鲁奥奥',function (cursor) {
+    if (cursor) {
+      var classname=cursor.value.classname;
+      var ScoreAdd=cursor.value.stuname;
+      var ScoreTest=cursor.value.ScoreTest;
+      var Scorehome=cursor.value.Scorehome;
+      var ScoreKaoqin=cursor.value.ScoreKaoqin;
+      console.log(ScoreAdd);
+      cursor.continue();
+    } else {
+      console.log('无数据');
+    }
+  });
+
+  /* 遍历(学生提交作业记录表)数据工具类函数回调（游标与index结合遍历）*/
+function QueryTableByDB(tablename, indexname, teachclass, callback) {
+  var openDB = indexedDB.open(DBname, version);
+  var db;
+  openDB.onsuccess = function (e) {
+    // 获取数据库实例
+    db = openDB.result;
+    var objectStore = db.transaction(tablename).objectStore(tablename);
+    var index = objectStore.index(indexname);
+    var request = index.openCursor(IDBKeyRange.only(teachclass));
+    request.onsuccess = function (e) {
+      var cursor = e.target.result;
+      callback.call(this, cursor);
+    }
+  }
+}
+</script>
+
+</html>

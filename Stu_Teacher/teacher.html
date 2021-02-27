@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+    <title>学生管理</title>
+    <link rel="stylesheet" href="../Bootstrap/bootstrap.css" />
+    <link rel="stylesheet" href="../public.css">
+</head>
+
+<body>
+    <!--导航-->
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!--小屏幕导航按钮和logo-->
+            <div class="navbar-header">
+                <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="teacher.html" class="navbar-brand">学生教务系统</a>
+            </div>
+            <!--小屏幕导航按钮和logo-->
+            <!--导航-->
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="teacher.html"><span class="glyphicon glyphicon-home"></span>&nbsp;&nbsp;首页</a></li>
+                    <li class="active"><a href="teacher.html"><span
+                                class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;成绩管理</a></li>
+                    <li><a href="teacher.html"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;&nbsp;智能选课</a>
+                    </li>
+                    <li><a href="teacher.html"><span class="glyphicon glyphicon-tags"></span>&nbsp;&nbsp;标签管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            admin
+                            <span class="caret"></span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="dLabel">
+                            <li><a href="teacher.html"><span
+                                        class="glyphicon glyphicon-screenshot"></span>&nbsp;&nbsp;前台首页</a></li>
+                            <li><a href="teacher.html"><span
+                                        class="glyphicon glyphicon-user"></span>&nbsp;&nbsp;个人主页</a></li>
+                            <li><a href="teacher.html"><span class="glyphicon glyphicon-cog"></span>&nbsp;&nbsp;个人设置</a>
+                            </li>
+                            <li><a href="teacher.html"><span
+                                        class="glyphicon glyphicon-credit-card"></span>&nbsp;&nbsp;账户中心</a></li>
+                            <li><a href="teacher.html"><span
+                                        class="glyphicon glyphicon-heart"></span>&nbsp;&nbsp;我的收藏</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="../Login/login.html"><span class="glyphicon glyphicon-off"></span>&nbsp;&nbsp;退出</a>
+                    </li>
+                </ul>
+            </div>
+            <!--导航-->
+
+        </div>
+    </nav>
+    <!--导航-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <ul class="nav nav-pills nav-stacked">
+                    <li role="presentation" class="active"> <a href="#teacher_list" data-toggle="tab">学生管理</a></li>
+                    <li role="presentation"> <a href="#teacher_search" data-toggle="tab">学生搜索</a>
+                    </li>
+                    <li role="presentation"> <a href="" role="button" data-toggle="modal"
+                            data-target="#mysendhomework">发布作业</a>
+                    </li>
+                    <li role="presentation"> <a href="#checkhomework" data-toggle="tab">批改作业</a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="col-md-10">
+                <div class="tab-content">
+                    <!-- 学生成绩管理 -->
+                    <div class="tab-pane active" id="teacher_list">
+                        <div class="page-header">
+                            <h1>学生管理</h1>
+                        </div>
+
+                        <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingOne">
+                                    <h4 class="panel-title">
+                                        <a role="button" data-toggle="collapse" data-parent="#accordion"
+                                            href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                            查询具体功能？
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseOne" class="panel-collapse collapse " role="tabpanel"
+                                    aria-labelledby="headingOne">
+                                    <div class="panel-body">
+                                        查询按钮可以让老师查看该生的本门课成绩信息
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-heading" role="tab" id="headingTwo">
+                                    <h4 class="panel-title">
+                                        <a class="collapsed" role="button" data-toggle="collapse"
+                                            data-parent="#accordion" href="#collapseTwo" aria-expanded="false"
+                                            aria-controls="collapseTwo">
+                                            添加成绩具体功能？
+                                        </a>
+                                    </h4>
+                                </div>
+                                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel"
+                                    aria-labelledby="headingTwo">
+                                    <div class="panel-body">
+                                        该科总成绩=按照考试成绩（60%）+平时作业成绩（20%）+平时出勤成绩（20%）
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <table class="table table-responsive table-striped table-hover text-center">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th class="text-center">姓名</th>
+                                    <th class="text-center">学号</th>
+                                    <th class="text-center">查看成绩</th>
+                                    <th class="text-center">添加成绩</th>
+                                </tr>
+                            </thead>
+                            <tbody id="manager_querystudentinfo">
+                                <!-- <tr>
+                                    <th scope="row">1</th>
+                                    <td>张三</td>
+                                    <td>2018042031</td>
+                                    <td> <button type="button" class="btn  bg-primary" data-toggle="modal"
+                                            data-target="#search">查询</button></td>
+                                    <td class="text-center"> <button type="button" class="btn btn-primary"
+                                            data-toggle="modal" data-target="#setoradd">查/改</button></td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>张三</td>
+                                    <td>2018042031</td>
+                                    <td> <button type="button" class="btn bg-primary" data-toggle="modal"
+                                            data-target="#search">查询</button></td>
+                                    <td class="text-center"> <button type="button" class="btn btn-primary"
+                                            data-toggle="modal" data-target="#setoradd">查/改</button></td>
+                                </tr> -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- 学生搜索 -->
+                    <div class="tab-pane " id="teacher_search">
+                        <div class="page-header">
+                            <h1>学生搜索</h1>
+                        </div>
+                        <form action="#" class="uesr_search">
+                            <div class="alert alert-info" role="alert">
+                                <strong>技巧提示：</strong>
+                                输入学生信息可查询该生成绩及其相关信息
+                            </div>
+                            <div class="form-group">
+                                <label for="aa_name">姓名</label>
+                                <input type="texte" id="aa_name" class="form-control" placeholder="请输入学生姓名">
+                            </div>
+                            <div class="form-group">
+                                <label for="aa_uid">学号</label>
+                                <input type="text" id="aa_uid" class="form-control" placeholder="输入学号">
+                            </div>
+                            <!-- <button type="submit" class="btn btn-default">提交</button> -->
+                            <button type="button" class="btn btn-primary center-block" id="manager_serach" data-toggle="modal"
+                                data-target="#search">查询</button>
+                        </form>
+                    </div>
+                    <!-- 批改作业 -->
+                    <div class="tab-pane" id="checkhomework">
+                        <div class="page-header">
+                            <h1>批改学生作业</h1>
+                        </div>
+                        <!-- 课表代码 -->
+                        <form action="#" class="uesr_search">
+                            <div class="alert alert-info" role="alert">
+                                <strong>作业批改：</strong>
+                                这里记录所有提交过的作业
+                            </div>
+                            <div class="row" id="teacherhomework_list">
+                                <!-- <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h3>提交人:张三同学</h3>
+                                            <p><strong>状态:</strong>张三同学</p>
+                                            <p class="Pigaihomework_name"><strong>作业名称:</strong>的设计开发你几点</p>
+                                            <p><strong>提交事件:</strong>2020.12.12</p>
+                                            <p class=""><a href="#" class="btn btn-primary" role="button"
+                                                    data-toggle="modal" data-target="#checkhomeworkinfo">查看</a></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6 col-md-4">
+                                    <div class="thumbnail">
+                                        <div class="caption">
+                                            <h3>提交人:张三同学</h3>
+                                            <p><strong>状态:</strong>未批改</p>
+                                            <p class="Pigaihomework_name"><strong>作业名称:</strong>的设计开发你几点看法迪斯科解放NSF你</p>
+                                            <p><strong>提交时间:</strong>2020.12.12</p>
+                                            <p class=""><a href="#" class="btn btn-primary" role="button"
+                                                    data-toggle="modal" data-target="#checkhomeworkinfo">批改</a></p>
+                                        </div>
+                                    </div>
+                                </div> -->
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Model设置或添加成绩 -->
+    <div class="modal fade" id="setoradd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-backdrop="static">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h3 class="modal-title" id="myModalLabel">修改/添加成绩</h3>
+                    <h5 class="modal-title" id="myModalLabel"><strong>说明：</strong><br>
+                        1.老师只有一次权限添加成绩（不可二次更改） <br>
+                        2.每项成绩总分均为150 <br>
+                        3.平时作业成绩由该学生所提交的作业平均成绩所得 <br>
+                        4.考试成绩与考勤成绩由老师手动录入<br>
+                        5.该科总成绩=按照考试成绩（60%）+平时作业成绩（20%）+平时出勤成绩（20%）</h5>
+                </div>
+                <div class="modal-body">
+                    <p id="manage_message" style="margin-left: 150px"></p>
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="manage_addscore1">该科考试成绩</label>
+                            <input type="text" maxlength="3" id="manage_addscore1" class="form-control" placeholder="请键入成绩">
+                        </div>
+                        <div class="form-group">
+                            <label for="manage_addscore2">学生平时作业成绩</label>
+                            <input type="text" maxlength="3" id="manage_addscore2" class="form-control" placeholder="请键入成绩">
+                        </div>
+                        <div class="form-group">
+                            <label for="manage_addscore3">该生平时出勤成绩</label>
+                            <input type="text" maxlength="3" id="manage_addscore3" class="form-control" placeholder="请键入成绩">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="manage_addscoreClose" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button type="button" id="manage_aaaddscoreOK"  class="btn btn-primary">录入</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Model查询成绩 -->
+    <div class="modal fade" id="search" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">学生成绩</h4>
+                </div>
+                <div class="modal-body">
+                    <table class="table table-responsive table-striped table-hover text-center">
+                        <thead>
+                            <tr>
+                                <th>课程</th>
+                                <th class="text-center">考试成绩</th>
+                                <th class="text-center">作业成绩</th>
+                                <th class="text-center">出勤成绩</th>
+                                <th class="text-center">总成绩</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row" id="manager_classname">C语言程序设计</th>
+                                <td id="manager_value1">89</td>
+                                <td id="manager_value2">12</td>
+                                <td id="manager_value3">12</td>
+                                <td id="manager_value4">12</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal操作 -->
+    <div class="modal fade" id="mysendhomework" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">发布作业</h4>
+                </div>
+                <div class="modal-body">
+                    <form action="#">
+                        <div class="form-group">
+                            <label for="sendhomework_addname">作业题目</label>
+                            <input type="text" id="sendhomework_addname" class="form-control" placeholder="作业题目">
+                        </div>
+                        <div class="form-group">
+                            <label for="sendhomework_addneed">要求</label>
+                            <input type="text" id="sendhomework_addneed" class="form-control" placeholder="要求">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <!-- <button type="button" class="btn btn-primary">提交</button> -->
+                    <a id="sendhomeworkbutton" tabindex="0" class="btn btn-primary" role="button" data-toggle="popover"
+                    data-trigger="focus" data-placement="left" data-content="您可能有信息未填写,请仔细检查并填写完您的信息">提交</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 批改作业modal -->
+    <div class="modal fade" id="checkhomeworkinfo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="teacherCheckHomework_title">题目：进程的定义</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label for="inputPassword3" class="col-sm-2 control-label">成绩</label>
+                            <div class="col-sm-3">
+                                <input type="number" maxlength="2px" class="form-control" id="teacherCheckHomework_score" placeholder=" 1-100之间整数">
+                             </div>
+                        </div>
+                      </form>
+                        <small id="teacherCheckHomework_content"></small>  
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                    <button id="teacherCheckHomework_ok" type="button" class="btn btn-primary">提交</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--footer-->
+    <footer>
+        <div class="container text-center setfooterposition">
+            <div class="row">
+                <div class="col-md-12">
+                    <p>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--footer-->
+
+
+   
+</body>
+<script src="../Jquery/jquery-3.5.1.js"></script>
+<script src="../Bootstrap/bootstrap.js"></script>
+<script src="../Jquery/jquery.params.js"></script>
+<script src="../JS/TeacherDataJob.js"></script>
+ 
+</html>

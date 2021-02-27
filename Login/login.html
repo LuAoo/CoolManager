@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录</title>
+  <link rel="stylesheet" href="../Bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="logon.css">
+</head> 
+<body>
+  <div class="container">
+    <div class="row row-top">
+      <div class="col-md-4"></div>
+      <div class="col-md-4 row-top-title">
+        <p class="text-center text-muted">欢迎登录教务系统</p>
+      </div>                                         
+      <div class="col-md-4">
+      </div>
+    </div>
+    <div class="row row-bottom">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <form>
+          <div class="well">
+            <!-- 学号输入 -->
+            <div class="form-group">
+              <label for="exampleInputEmail1">账号</label>
+              <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Name">
+            </div>
+            <!-- 密码输入 -->
+            <div class="form-group">
+              <label for="exampleInputPassword1">密码</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+            </div>
+
+            <!-- 登录方式 -->
+            <div class="form-group">
+              <label class="radio-inline">
+                <input type="radio" value="option1" name="sex" class="student_way" checked>学生
+              </label>
+              <label class="radio-inline teacher_way">
+                <input type="radio" value="option2" name="sex" class="teacher_way">教师
+              </label>
+              <label class="radio-inline teacher_way">
+                <input type="radio" value="option2" name="sex" class="admin_way">管理员
+              </label>
+            </div>
+            <!-- 登录 -->
+            <div class="form-group">
+              <button type="button" class="btn btn-large btn-block btn-primary btn-lg" id="login-button-go">登录</button>
+            </div>
+
+            <!-- 注册与忘记密码 -->
+            <div class="clearfix">
+              <div class="pull-left">
+                <a data-toggle="modal" href="http://www.snut.edu.cn/">游客登录@.@</a>
+              </div>
+              <div class="pull-right">
+                <a data-toggle="modal" data-target="#forgetPassword" data-whatever="@mdo">忘记密码？？</a>
+              </div>
+
+              <!-- 注册模态框 -->
+              <div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                          aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="register">学生注册</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="recipient-id" class="control-label">学号：</label>
+                          <input type="number" placeholder="输入学号"  class="form-control active" id="recipient-id">
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-name" class="control-label">姓名：</label>
+                          <input type="text" placeholder="输入姓名" class="form-control" id="recipient-name">
+                        </div>
+
+                        <div class="form-group">
+                          <label for="recipient-password" class="control-label">输入密码：</label>
+                          <input type="password" placeholder="输入密码" class="form-control" id="recipient-password">
+                        </div>
+                        <div class="form-group">
+                          <label for="recipient-password-ok" class="control-label">确认密码：</label>
+                          <input type="password" placeholder="确认密码" class="form-control" id="recipient-password-ok">
+                        </div>
+                        <p id="msg_pwd" style="margin-left: 150px"></p>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn  btn-default" data-dismiss="modal">Close</button>
+                      <!-- <button type="button" class="btn btn-primary" id="model_button_ok">OK</button> -->
+                      <a id="model_button_ok" tabindex="0" class="btn btn-primary" role="button" data-toggle="popover"
+                        data-trigger="focus" data-placement="left" data-content="您可能有信息未填写,请仔细检查并填写完您的信息">OK</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- 忘记密码模态框 -->
+              <div class="modal fade" id="forgetPassword" tabindex="-1" role="dialog" aria-labelledby="forgetPassword">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                          aria-hidden="true">&times;</span></button>
+                      <h4 class="modal-title" id="forgetPassword">找回密码</h4>
+                    </div>
+                    <div class="modal-body">
+                      <form>
+                        <div class="form-group">
+                          <label for="recipient-findpasswordbynum" class="control-label">请输入学号</label>
+                          <input type="text" class="form-control" id="recipient-findpasswordbynum">
+                        </div>
+                        <div class="form-group">
+                          <label for="message-findpasswordbyname" class="control-label">请输入姓名</label>
+                          <input type="text" class="form-control" id="recipient-findpasswordbyname">
+                        </div>
+                      </form>
+                    </div>
+                    <div class="modal-footer">
+                      <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                      <a id="model_find_button_ok" tabindex="0" class="btn btn-primary" role="button"
+                        data-toggle="popover" data-trigger="focus" data-placement="left"
+                        data-content="您可能有信息未填写,请仔细检查并填写完您的信息">Find</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-3"></div>
+    </div>
+  </div>
+</body>
+<script src="../Jquery/jquery-3.5.1.js"></script>
+<script src="../Bootstrap/bootstrap.js"></script>
+<!-- 引入建表JS文件 -->
+<!-- <script src="../JS/createDB.js"></script> -->
+<script src="../JS/CreateDBX.js"></script>
+<!-- 引入中心逻辑 -->
+<script src="../JS/LoginDataJob.js"></script>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,13 @@
+.setfooterposition {
+    position: absolute;
+    bottom: 0px;
+}
+
+.Pigaihomework_name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+#teacherCheckHomework_content{
+    word-break:break-all;
+}

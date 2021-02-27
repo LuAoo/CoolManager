@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    // var version = 2, DBname = 'studentSystemDB';
+    QueryTable('软件工');
+    function QueryTable(classnamename) {
+        var openDB = indexedDB.open('studentSystemDB', 2);
+        var db;
+        openDB.onsuccess = function (e) {
+            // 获取数据库实例
+            db = openDB.result;
+            var transaction = db.transaction(['teachertable'], 'readonly');
+            var store = transaction.objectStore('teachertable');
+            var index = store.index('teachclass');
+            var request = index.get(classnamename);
+            request.onsuccess = function (e) {
+                var result = e.target.result;
+                if (result) {
+                    console.log(result.teachclass);
+                } else {
+                    console.log('查找失败');
+                }
+            }
+
+        }
+    }
+</script>
+
+</html>

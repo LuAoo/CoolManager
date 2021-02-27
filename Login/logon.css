@@ -1,0 +1,22 @@
+body{
+    background-image: url(http://v.bootstrapmb.com/2020/2/hjxc07388/img/p_big3.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.aa{
+    margin-top: 50px;
+}
+.container_make{
+    margin-top: 100px;
+}
+
+.row-top-title p{
+    font-size: 35px;
+
+}
+.row-top{
+    margin-top: 100px;
+}
+.row-bottom{
+    margin-top: 30px;
+}
